@@ -1,0 +1,94 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:Artemis.Plugins.Modules.Grid.ViewModels"
+             xmlns:controls="clr-namespace:FluentAvalonia.UI.Controls;assembly=FluentAvalonia"
+             xmlns:avalonia="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:styling="clr-namespace:FluentAvalonia.Styling;assembly=FluentAvalonia"
+             xmlns:attachedProperties="clr-namespace:Artemis.UI.Shared.AttachedProperties;assembly=Artemis.UI.Shared"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Artemis.Plugins.Modules.Grid.Views.Steps.WelcomeStep"
+             x:DataType="viewModels:GridConfigurationViewModel">
+  <Border Classes="card" Margin="10 35 10 10" Padding="80">
+    <Border.Styles>
+      <styling:FluentAvaloniaTheme />
+      <Style Selector="TextBlock">
+        <Setter Property="Foreground" Value="White"/>
+      </Style>
+    </Border.Styles>
+    <Border.Background>
+      <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,100%">
+        <GradientStop Color="#387D67" Offset="0" />
+        <GradientStop Color="#141d3a" Offset="1" />
+      </LinearGradientBrush>
+    </Border.Background>
+    <StackPanel>
+      <TextBlock Classes="h3" TextAlignment="Center" TextWrapping="Wrap" Margin="0 20 0 80">
+        Get started with Grid Plugin
+      </TextBlock>
+
+      <Grid RowDefinitions="*,*" ColumnDefinitions="*,Auto">
+        <StackPanel Grid.Column="0">
+          <TextBlock>Rows</TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Orientation="Horizontal">
+          <controls:NumberBox Value="{CompiledBinding Rows}"
+                              attachedProperties:NumberBoxAssist.SuffixText="ms"
+                              Width="150"
+                              Minimum="1"
+                              AcceptsExpression="True" />
+        </StackPanel>
+      </Grid>
+      <Border Classes="card-separator" />
+
+
+      <Grid RowDefinitions="*,*" ColumnDefinitions="*,Auto">
+        <StackPanel Grid.Column="0">
+          <TextBlock>Columns</TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Orientation="Horizontal">
+          <controls:NumberBox Value="{CompiledBinding Columns}"
+                              attachedProperties:NumberBoxAssist.SuffixText="ms"
+                              Width="150"
+                              Minimum="1"
+                              AcceptsExpression="True" />
+        </StackPanel>
+      </Grid>
+      <Border Classes="card-separator" />
+      
+      
+      
+      
+      
+      
+      
+      <!--<Button Command="{CompiledBinding AutoArrange}"  Margin="0 10"
+               IsEnabled="{CompiledBinding !Busy}"
+             HorizontalAlignment="Center"
+             Content="Auto Arrange" />-->
+
+      <Button Command="{CompiledBinding DetectInput}"  Margin="0 10"     
+       HorizontalAlignment="Center"
+       Content="Detect Input" />
+
+      <Button Command="{CompiledBinding StartArrange}"  Margin="0 10"
+              HorizontalAlignment="Center"
+              Content="Start manual Arrange" />
+      
+      <Button Command="{CompiledBinding StopArrange}"  Margin="0 10"
+              HorizontalAlignment="Center"
+              Content="Stop manual Arrange" />
+
+      <Button Command="{CompiledBinding ExportOpenRgbVisualMapConfig}"  Margin="0 10"
+        HorizontalAlignment="Center"
+        Content="Export OpenRGB Visual Map Settings" />
+
+
+      <Button Command="{CompiledBinding Debug}"  Margin="0 10"
+ HorizontalAlignment="Center"
+ Content="Debug (Export Settings)" />
+
+    </StackPanel>
+  </Border>
+</UserControl>

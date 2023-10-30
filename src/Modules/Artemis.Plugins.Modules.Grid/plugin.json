@@ -1,0 +1,13 @@
+﻿{
+  "Guid": "f9906c0e-766f-445f-8260-1198d496c300",
+  "Api": "1.0",
+  "Name": "Grid",
+  "Author": "Visma Tech",
+  "Website": "https://www.visma.lt/",
+  "Repository": "https://github.com/andrius-pra/Artemis.Plugins",
+  "Icon": "Speedometer",
+  "Description": "",
+  "Version": "1.0.0.0",
+  "Main": "Artemis.Plugins.Modules.Grid.dll",
+  "Platforms": "Windows"
+}
