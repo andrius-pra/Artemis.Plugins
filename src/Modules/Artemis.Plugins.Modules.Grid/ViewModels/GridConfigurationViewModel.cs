@@ -207,24 +207,42 @@ namespace Artemis.Plugins.Modules.Grid.ViewModels
 
         private async Task ExecuteDetectInput()
         {
+            HashSet<string> identifierSet = [];
             foreach (ArtemisDevice device in this._deviceService.Devices)
             {
                 if (device.DeviceType != RGBDeviceType.Keyboard)
                     continue;
 
-                try
+  
+                do
                 {
-                    await _windowService.CreateContentDialog()
-                        .WithTitle($"{device.RgbDevice.DeviceInfo.DeviceName} - Detect input")
-                        .WithViewModel(out DeviceDetectInputViewModel viewModel, device)
-                        .WithCloseButtonText("Cancel")
-                        .ShowAsync();
+                    try
+                    {
+                        await _windowService.CreateContentDialog()
+                            .WithTitle($"{device.RgbDevice.DeviceInfo.DeviceName} - Detect input")
+                            .WithViewModel(out DeviceDetectInputViewModel viewModel, device)
+                            .WithCloseButtonText("Cancel")
+                            .ShowAsync();
 
-                    this._deviceService.SaveDevice(device);
-                }
-                catch (Exception w)
-                {
-                }
+                        string identifier = device.InputIdentifiers.FirstOrDefault()?.Identifier?.ToString();;
+                        if (device.InputIdentifiers.Count == 1 && !identifierSet.Contains(identifier))
+                        {
+                            identifierSet.Add(identifier);
+                            _deviceService.SaveDevice(device);
+                        }
+                        else
+                        {
+                            device.InputIdentifiers.Clear();
+                        }
+                    }
+                    catch (Exception w)
+                    {
+                    }
+                } while (device.InputIdentifiers.Count == 0);
+
+
+
+
             }
 
             UpdateSettings();
