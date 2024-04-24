@@ -4,6 +4,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Platforms>x64</Platforms>
     <EnableDynamicLoading>true</EnableDynamicLoading>
+    <OutDir>..\..\..\..\Artemis.Dev\Artemis\Plugins\Artemis.Plugins.Devices.OpenRGB</OutDir>
   </PropertyGroup>
 
   <ItemGroup>

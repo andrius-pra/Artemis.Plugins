@@ -94,6 +94,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nodes", "Nodes", "{7AE6F335
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Artemis.Plugins.Nodes.General", "Nodes\Artemis.Plugins.Nodes.General\Artemis.Plugins.Nodes.General.csproj", "{7D3708F8-70B7-40C2-A290-622DB256A22D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Artemis.Plugins.Modules.Grid", "Modules\Artemis.Plugins.Modules.Grid\Artemis.Plugins.Modules.Grid.csproj", "{40E9AA22-27B5-40F9-B1C0-0FF3421698B5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -240,6 +242,10 @@ Global
 		{7D3708F8-70B7-40C2-A290-622DB256A22D}.Debug|x64.Build.0 = Debug|Any CPU
 		{7D3708F8-70B7-40C2-A290-622DB256A22D}.Release|x64.ActiveCfg = Release|Any CPU
 		{7D3708F8-70B7-40C2-A290-622DB256A22D}.Release|x64.Build.0 = Release|Any CPU
+		{40E9AA22-27B5-40F9-B1C0-0FF3421698B5}.Debug|x64.ActiveCfg = Debug|x64
+		{40E9AA22-27B5-40F9-B1C0-0FF3421698B5}.Debug|x64.Build.0 = Debug|x64
+		{40E9AA22-27B5-40F9-B1C0-0FF3421698B5}.Release|x64.ActiveCfg = Release|x64
+		{40E9AA22-27B5-40F9-B1C0-0FF3421698B5}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -280,6 +286,7 @@ Global
 		{BFA0D759-EF8B-4B4B-8879-CB0DEB27A193} = {82496F91-3977-44EE-A1B8-B301A8B03E20}
 		{A3E1FB7F-838F-49DB-9229-ED65DC4693F0} = {82496F91-3977-44EE-A1B8-B301A8B03E20}
 		{7D3708F8-70B7-40C2-A290-622DB256A22D} = {7AE6F335-202C-45DD-8FE3-1BE3E0EF7F6F}
+		{40E9AA22-27B5-40F9-B1C0-0FF3421698B5} = {82496F91-3977-44EE-A1B8-B301A8B03E20}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9B916481-E18C-4776-900C-3E79B636F006}
