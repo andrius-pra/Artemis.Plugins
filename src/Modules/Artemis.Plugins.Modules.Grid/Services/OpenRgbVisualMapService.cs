@@ -33,7 +33,7 @@ namespace Artemis.Plugins.Modules.Grid.Services
 
         public async Task ExportSettings()
         {
-            string? result = await _windowService.CreateSaveFileDialog()
+            string result = await _windowService.CreateSaveFileDialog()
                 .HavingFilter(f => f.WithExtension("json").WithName("JSON"))
                 .WithDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), @$"OpenRGB\plugins\settings\virtual-controllers"))
                 .WithInitialFileName("rgb-master.json")
@@ -75,7 +75,7 @@ namespace Artemis.Plugins.Modules.Grid.Services
             return zones;
         }
 
-        private bool TryGetControllerZone(ArtemisDevice device, out VisualMapCtrlZone? zone)
+        private bool TryGetControllerZone(ArtemisDevice device, out VisualMapCtrlZone zone)
         {
             string type = device.RgbDevice.DeviceInfo.GetType().FullName;
 

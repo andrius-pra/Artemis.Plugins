@@ -166,7 +166,7 @@ namespace Artemis.Plugins.Modules.Grid.ViewModels
         private async Task ExecuteDebug()
         {
             string fileName = "settings.json";
-            string? result = await _windowService.CreateSaveFileDialog()
+            string result = await _windowService.CreateSaveFileDialog()
                 .HavingFilter(f => f.WithExtension("json").WithName("JSON"))
                 .WithInitialFileName(fileName)
                 .ShowAsync();
@@ -235,7 +235,7 @@ namespace Artemis.Plugins.Modules.Grid.ViewModels
                             device.InputIdentifiers.Clear();
                         }
                     }
-                    catch (Exception w)
+                    catch (Exception)
                     {
                     }
                 } while (device.InputIdentifiers.Count == 0);
