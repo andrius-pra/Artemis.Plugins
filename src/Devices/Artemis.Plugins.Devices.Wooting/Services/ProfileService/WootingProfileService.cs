@@ -14,7 +14,9 @@ public sealed class WootingProfileService : ReusableService
     private readonly ILogger _logger;
     private List<WootingProfileDevice> _devices;
     private DateTime _lastUpdate;
-    public IEnumerable<WootingProfileDevice> Devices => IsActivated ? _devices : Enumerable.Empty<WootingProfileDevice>();
+    public IList<WootingProfileDevice> Devices => IsActivated ? _devices : Array.Empty<WootingProfileDevice>();
+
+    private readonly TimeSpan _updateInterval = TimeSpan.FromMilliseconds(2000);
 
     public WootingProfileService(ILogger logger)
     {
@@ -25,23 +27,24 @@ public sealed class WootingProfileService : ReusableService
     {
         if (!IsActivated || _devices.Count == 0)
             return;
-        
+
         DateTime now = DateTime.Now;
-        if (now - _lastUpdate < TimeSpan.FromSeconds(1d / 5d))
+        if (now - _lastUpdate < _updateInterval)
             return;
-        
+
         if (!WootingSdk.IsConnected())
         {
             _logger.Error("Wooting SDK is not connected");
             return;
         }
-        
+
         for (byte i = 0; i < _devices.Count; i++)
         {
             WootingProfileDevice device = _devices[i];
             if (WootingSdk.TryGetProfile(i, device.Info.V2Interface, out int p))
                 device.Profile = p;
         }
+
         _lastUpdate = now;
     }
 
